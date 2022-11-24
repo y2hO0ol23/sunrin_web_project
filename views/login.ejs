@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel = "stylesheet"type = "text/css" href = "/basic.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type="text/css" href='/login.css'/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkalami&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,900&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <a href='/' id='title'>WOW CTF</a>
+        <nav id='menu'>
+            <a href="/register">Register</a>
+            <a href="/login"><b>Login</b></a>
+        </nav>
+    </header>
+    <main>
+        <form method='POST' action="/login">
+            <div id='login'>
+                <h1>Login</h1>
+                <input type="text" placeholder="id" name="id">
+                <br>
+                <br>
+                <input type="password" placeholder="password" name='password'>
+                <br>
+                <br>
+                <input type='submit' value="로그인">
+                <br>
+                <p><%= error%></p>
+            </div>
+        </form>
+    </main>    
+</body>
+</html>

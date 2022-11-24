@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel = "stylesheet"type = "text/css" href = "/basic.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkalami&display=swap" rel="stylesheet">
+    <link rel = "stylesheet" type = "text/css" href = "/profile.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+    <title>profile</title>
+</head>
+<body>
+    <header>
+        <a href='/' id='title'>WOW CTF</a>
+        <nav id="menu">
+            <a href="/profile" id='profile'><b><%= name %></b></a>
+            <a href='/notice' id='notice'>Notice</a>
+            <a href="/challenge" id="challenge">Challenge</a>
+            <a href="/rank" id='rank'>Rank</a>
+            </nav>
+    </header>
+    <form method='POST' action="/profile">
+        <div>
+            <h1>PROFILE</h1>
+            <br><br>
+            <input type="text" name="name" value=<%= name %>> <br> <br>
+            <input type="text" name='id' value=<%= id %>> <br> <br>
+            <input type="password" name='password' placeholder="password"> <br> <br>
+            <input type="password" name='confirm' placeholder="confirm"> <br> <br>
+            <input type="email" name='email' value=<%= email %>> <br> <br>
+            <input type="submit" value="완료"> <br>
+            <p><%= error%></p>
+        </div>
+    </form>
+</body>
+</html>

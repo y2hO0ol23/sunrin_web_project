@@ -1,0 +1,36 @@
+a{
+    text-decoration : none;
+    color: white;
+}
+#title{
+    font-size: 2em;
+    font-family: 'Press Start 2P', cursive;
+    font-family: 'Silkscreen', cursive;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    background-color: black;
+    padding: 1%;
+}
+#menu{
+    font-size: 15px;
+    font-family: 'Press Start 2P', cursive;
+    font-family: 'Roboto Condensed', sans-serif;
+    width: 500px;
+}
+#menu a{
+    float: right;
+    margin-top: 12px;
+    margin: 12px; 
+}
+body{
+    margin: 0;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+

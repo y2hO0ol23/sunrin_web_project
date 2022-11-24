@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel = "stylesheet"type = "text/css" href = "/basic.css"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type = "text/css" href="/main.css"/>
+    <title>WOW CTF</title>
+</head>
+<body>
+    <header>
+        <a href='/' id='title'>WOW CTF</a>
+        <nav id="menu">
+            <% if(login != true) { %>
+            <a href="/register">Register</a>
+            <a href="/login">Login</a>
+            <% } else{ %>
+            <a href="/profile" id='profile'><%= name %></a>
+            <a href='/notice' id='notice'>Notice</a>
+            <a href="/challenge" id="challenge">Challenge</a>
+            <a href="/rank" id='rank'>Rank</a>
+            <% }%>
+            </nav>
+    </header>
+    <p>WEHLCOM TO WOW CTF</p>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Register</title>
+    <link rel='stylesheet' type='text/css' href='/basic.css'/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Silkscreen&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='/register.css'/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkalami&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <a href='/' id='title'>WOW CTF</a>
+        <nav id='menu'>
+            <a href="/register"><b>Register</b></a>
+            <a href="/login">Login</a>
+        </nav>
+    </header>
+    <main>
+        <form method="POST" action="/register">
+            <div>
+                <h1>Register</h1>
+                <input type="text" name="name" placeholder="name"> <br> <br>
+                <input type="text" name='id' placeholder="id"> <br> <br>
+                <input type="password" name='password' placeholder="password"> <br> <br>
+                <input type="password" name='confirm' placeholder="confirm"> <br> <br>
+                <input type="email" name='email' placeholder="email"> <br> <br>
+                <input type="submit" value="회원가입"> <br>
+                <p><%= error%></p>
+            </div>
+        </form>
+    </main>
+</body>
+</html>
