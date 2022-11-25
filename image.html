@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>라이트박스</title>
+	<style>
+		.row {
+			width: 420px;
+			margin: 0 auto;
+		}
+
+		.row ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.row ul li {
+			display: inline-table;
+		}
+
+		/* 라이트 박스 스타일 */
+		#lightbox {
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(0, 0, 0, 0.7);
+			top: 0;
+			left: 0;
+			display: none;
+		}
+
+		#lightbox img {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			border: 5px solid #eee;	
+		}
+		@keyframes box-ani {
+		from {
+		transform: translate(0, 0);
+		}
+		to {
+		transform: translate(650px, 220px);
+		}
+	}
+	</style>
+</head>
+
+<body>
+	<div class="row">
+		<ul>
+			<li><img src="tree-1-thumb.jpg" data-src="tree-1.jpg" class="picture"></li>
+			<li><img src="tree-2-thumb.jpg" data-src="tree-2.jpg" class="picture"></li>
+			<li><img src="tree-3-thumb.jpg" data-src="tree-3.jpg" class="picture"></li>
+			<li><img src="tree-4-thumb.jpg" data-src="tree-4.jpg" class="picture"></li>
+			<li><img src="tree-5-thumb.jpg" data-src="tree-5.jpg" class="picture"></li>
+			<li><img src="tree-6-thumb.jpg" data-src="tree-6.jpg" class="picture"></li>
+		</ul>
+		<input type="text" id='texT'><button id="but">제출</button>
+	</div>
+
+	<div id="lightbox">
+		<img src="tree-1.jpg" id="lightboxImage">
+	</div>
+	
+	<script>
+		var pictureselector = document.querySelectorAll(".picture");
+		var lightbox = document.querySelector("#lightbox");
+		var lightboxImage = document.querySelector('#lightboxImage');
+		console.log(pictureselector);
+		function showLightbox() {
+			var data_src = this.getAttribute("data-src");
+			lightboxImage.setAttribute('src', data_src);
+			lightboxImage.style.animation = "box-ani 5s linear forwards";
+			lightbox.style.display = "block"; 
+			
+		}
+
+		for (var i = 0; i < pictureselector.length; i++) {
+			pictureselector[i].addEventListener('dblclick',showLightbox)
+		}
+		function anumation(){
+			lightboxImage.style.animation = "box-ani 5s linear forwards";
+		}
+		lightbox.addEventListener('click', function () {
+			lightbox.style.display = 'none'
+			lightboxImage.style.animation = "none";
+		});
+		var but= document.querySelector("#but");
+		but.addEventListener('click',showandprove)
+		function showandprove(){
+			var inpu=document.querySelector("#texT").value;
+			var aaa = pictureselector[inpu-1].getAttribute("data-src");
+			lightboxImage.setAttribute('src',aaa);
+			lightbox.style.display = "block";
+		}
+
+	</script>
+</body>
+
+</html>
