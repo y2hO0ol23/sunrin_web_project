@@ -255,12 +255,16 @@ app.get('/rank', (req, res)=>{
     res.render('rank',{ name : 'asdf'});
 });
 
+blockcode = function(name, code){
+    return "<" + name + ">\n" + code + "\n</" + name + ">\n";
+}
+
 //문제 페이지
-app.get('/challenge', (req, res)=>{
+app.get('/challenge', async (req, res)=>{
     if(res.cookie.login == true){
         var id = res.cookie.id;
         var pwd = res.cookie.password;
-        connection.query('select * from user where userId=?',[id],(err,result)=>{
+        connection.query('select * from user where userId=?',[id], async (err,result)=>{
             if(err)
                 throw err;
             if(result.length == 0 || pwd != result[0].userPassword) {
@@ -271,11 +275,28 @@ app.get('/challenge', (req, res)=>{
             }
             else {
                 var id = res.cookie.id;
-                fs.readdir('./prob', (err, fileList) => {
-                    fileList.splice(fileList.indexOf('STATE'),1)
-                    console.log(fileList);
-                    res.render('challenge',{ name : 'asdf'});
-                });
+                var main = "";
+                var script = "";
+                fieldList = await fs.readdirSync('./prob');
+                fieldList.splice(fieldList.indexOf('STATE'),1)
+                for(var field of fieldList){
+                    main += '<div id="' + field + '"><h2>' + field + '</h2></div>'
+                    probList = await fs.readdirSync('./prob/'+field,(err)=>{});
+
+                    for(var name of probList){
+                        data = await fs.readFileSync('./views/challenge/script.html', 'utf8');
+                        data = data.replace(/@field/g, field)
+                        data = data.replace(/@name/g, name)
+                        data = data.replace(/@score/g, 100)
+                        script += data
+                    }
+                }
+                res.write(blockcode('head', await fs.readFileSync('./views/challenge/head.html')))
+                header = blockcode('header', await fs.readFileSync('./views/challenge/header.html'))
+                main = blockcode('main', main)
+
+                res.write(blockcode('body',header + main + script))
+                res.end()
             }
         });
     }

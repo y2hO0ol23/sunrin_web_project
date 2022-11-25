@@ -1,0 +1,16 @@
+<script>
+    var i = document.createElement('button');
+    //i.setAttribute('onclick','showimage()');
+    i.setAttribute('id','@field-@name');
+    var parent = document.getElementById('@field');
+    parent.appendChild(i);
+    var o = document.createElement('h1');
+    o.setAttribute('id','smalltitle');
+    o.innerText="@name";
+    var parent = document.getElementById('@field-@name');
+    parent.appendChild(o);
+    var t = document.createElement('p');
+    t.setAttribute('id','score');
+    t.innerText = "@score";
+    parent.appendChild(t);
+</script>
