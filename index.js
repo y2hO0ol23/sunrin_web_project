@@ -274,7 +274,6 @@ app.get('/challenge', async (req, res)=>{
                 });
             }
             else {
-                var id = res.cookie.id;
                 var main = "";
                 var script = "";
                 fieldList = await fs.readdirSync('./prob');
@@ -292,7 +291,7 @@ app.get('/challenge', async (req, res)=>{
                     }
                 }
                 res.write(blockcode('head', await fs.readFileSync('./views/challenge/head.html')))
-                header = blockcode('header', await fs.readFileSync('./views/challenge/header.html'))
+                header = blockcode('header', await fs.readFileSync('./views/challenge/header.html')).replace(/@name/, res.cookie.Name)
                 main = blockcode('main', main)
 
                 res.write(blockcode('body',header + main + script))
