@@ -294,8 +294,7 @@ app.get('/challenge', async (req, res)=>{
                 header = blockcode('header', await fs.readFileSync('./views/challenge/header.html')).replace(/@name/, res.cookie.Name)
                 main = blockcode('main', main)
 
-                res.write(blockcode('body',header + main + script))
-                res.end()
+                res.end(blockcode('body',header + main + script))
             }
         });
     }
