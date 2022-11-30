@@ -1,8 +1,10 @@
-h1{
-    font-family: 'Alkalami', serif;
-    font-size: 450px;
+main{
     text-align: center;
-    opacity: 0.3;
-    margin-top: 0px;
-    padding-top:0px;
+}
+
+div{
+    width: 70%;
+    height: 20%;
+    border: 1px black;
+    border-style: solid;
 }

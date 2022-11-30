@@ -1,4 +1,8 @@
 main{
-    text-align: center;
-    
+    text-align: center;   
 }
+main button{
+    border-radius: 10px;
+    width: 150px;
+    height: 100px;
+} 
