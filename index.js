@@ -293,24 +293,9 @@ app.get('/challenge', async (req, res)=>{
                 }
                 res.write(blockcode('head', await fs.readFileSync('./views/challenge/head.html')))
                 header = blockcode('header', await fs.readFileSync('./views/challenge/header.html')).replace(/@name/, res.cookie.Name)
-                main = '<main, id="">' + main + '</main>'
+                main = '<main id="main">' + main + '</main>' + '<button id="cancel"><h2>X</h2></button>'
 
                 res.end(blockcode('body',header + main + script))
-                
-                /*
-                <head>
-                    ./views/challenge/head.html
-                </head>
-                <body>
-                    <header>
-                        ./views/challenge/header.html
-                    </header>
-                    <main>
-                        main
-                    </main>
-                    script
-                </body>
-                */
             }
         });
     }

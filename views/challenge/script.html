@@ -13,4 +13,45 @@
     t.setAttribute('id','score');
     t.innerText = "@score";
     parent.appendChild(t);
+    i = document.createElement('div');
+    i.setAttribute("id",'@name-lightbox'); //외부
+    i.setAttribute('class','ligthbox');
+    o = document.createElement('div');
+    o.setAttribute('id',"@name-lightboxprob");
+    o.setAttribute('class','lightboxprob');
+    var a = document.createElement('h1');
+    a.innerText = "@name";
+    var down = document.createElement('a');
+    down.setAttribute('href','@path');
+    down.setAttribute('download','@name.zip');
+    down.innerText = "@name";
+    var main = document.querySelector('body');
+    main.appendChild(i);
+    parent = document.getElementById('@name-lightbox');
+    // var zxc = document.createElement("button");
+    // zxc.setAttribute('id','@name-x');
+    // zxc.innerText = "X";
+    // parent.appendChild(zxc);
+    parent.appendChild(o);
+    parent = document.getElementById('@name-lightboxprob');
+    parent.appendChild(a);
+    i = document.createElement("br");
+    parent.appendChild(i);
+    var b = document.createElement("br");
+    parent.appendChild(b);
+    var c = document.createElement("br");
+    parent.appendChild(c);
+    parent.appendChild(down);
+    
+    var @name_ligthbox = document.querySelector("#@name-lightboxprob");
+    document.getElementById("@field-@name").addEventListener("click", function (){
+        @name_ligthbox.style.display = "block";
+        document.getElementById('cancel').style.display = 'block';
+    });
+    
+    document.getElementById('cancel').addEventListener('click',function(){
+        @name_ligthbox.style.display = "none";
+        document.getElementById('cancel').style.display = "none";
+    });
+    
 </script>
