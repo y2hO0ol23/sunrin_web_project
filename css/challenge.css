@@ -49,3 +49,7 @@ button:active{
     display: none;
     
 }
+form{
+    white-space:nowrap;
+    margin-top: 40px;
+}

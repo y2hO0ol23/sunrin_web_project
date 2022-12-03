@@ -54,4 +54,24 @@
         document.getElementById('cancel').style.display = "none";
     });
     
+    var form = document.createElement('form');
+    form.setAttribute('method','POST');
+    form.setAttribute('action','/checkflag/@field/@name');
+    form.setAttribute('id','form_@name');
+    parent.appendChild(form);
+    
+    parent = document.getElementById('form_@name');
+    
+    var input = document.createElement('input');
+    input.setAttribute('type','text');
+    input.setAttribute('placeholder','WOWCTF{...}');
+    parent.appendChild(input);
+
+    var button = document.createElement("input");
+    button.setAttribute('type','submit');
+    button.setAttribute('value','제출');
+    parent.appendChild(button)
+    
+
+    
 </script>
