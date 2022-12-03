@@ -1,5 +1,6 @@
 main{
     text-align: center;   
+    background-color: white;
 }
 main button{
     border-radius: 10px;
@@ -46,4 +47,5 @@ button:active{
     left: 65%;
     position: relative;
     display: none;
+    
 }
