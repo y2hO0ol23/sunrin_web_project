@@ -415,5 +415,11 @@ app.post('/profile',(req,res)=>{
     res.redirect('/profile');
 });
 
+app.get('/prob/:field/:name/upload.zip', (req, res) => {
+    const field = req.params.field
+    const name = req.params.name
+    res.download('./prob/' + field + '/' + name + '/upload.zip')
+})
+
 const server = http.createServer(app);
 server.listen(app.get('port'),()=>{console.log("8080포트 연결중")});
