@@ -287,14 +287,30 @@ app.get('/challenge', async (req, res)=>{
                         data = data.replace(/@field/g, field)
                         data = data.replace(/@name/g, name)
                         data = data.replace(/@score/g, 100)
+                        data = data.replace(/@path/g, './prob/' + field + '/' + name + '/upload.zip')
                         script += data
                     }
                 }
                 res.write(blockcode('head', await fs.readFileSync('./views/challenge/head.html')))
                 header = blockcode('header', await fs.readFileSync('./views/challenge/header.html')).replace(/@name/, res.cookie.Name)
-                main = blockcode('main', main)
+                main = '<main, id="">' + main + '</main>'
 
                 res.end(blockcode('body',header + main + script))
+                
+                /*
+                <head>
+                    ./views/challenge/head.html
+                </head>
+                <body>
+                    <header>
+                        ./views/challenge/header.html
+                    </header>
+                    <main>
+                        main
+                    </main>
+                    script
+                </body>
+                */
             }
         });
     }
