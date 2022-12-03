@@ -421,5 +421,43 @@ app.get('/prob/:field/:name/upload.zip', (req, res) => {
     res.download('./prob/' + field + '/' + name + '/upload.zip')
 })
 
+app.post('/challenge/checked', (req, res)=>{
+
+})
+app.post('/checkflag/:field/:name', async (req,res)=>{
+    var flag = req.body.flag;
+    const field = req.params.field
+    const name = req.params.name
+    if(res.cookie.login == true){
+        var id = res.cookie.id;
+        var pwd = res.cookie.password;
+        connection.query('select * from user where userId=?',[id], async (err,result)=>{
+            if(err)
+                throw err;
+            if(result.length == 0 || pwd != result[0].userPassword) {
+                res.cookie.login = false;
+                res.render('login',{
+                    error: ''
+                });
+            }
+            else {
+                answer = await fs.readFileSync('./prob/'+field+'/'+name+'/flag.txt', 'utf8');
+                script = 'window.location.href = "/challenge";'
+                if (answer == flag){
+                    res.send("<script>alert('Correct!');" + script + "</script>");
+                }
+                else{
+                    res.send("<script>alert('Wrong...');" + script + "</script>");
+                }
+            }
+        });
+    }
+    else{
+        res.render('login',{
+            error: ''
+        });
+    }
+});
+
 const server = http.createServer(app);
 server.listen(app.get('port'),()=>{console.log("8080포트 연결중")});
